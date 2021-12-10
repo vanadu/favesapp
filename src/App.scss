@@ -1,0 +1,2166 @@
+// !VA Media Query Mixins
+@mixin mphone {
+  @media screen and (min-width: 321px) and (max-width: 413px) {
+    @content;
+  }
+}
+
+@mixin lphone {
+  @media screen and (min-width: 414px) and ( max-width: 767px ) { 
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 768px) and ( max-width: 962px ) { 
+    @content;
+  }
+}
+
+@mixin wdisplay {
+  @media screen and (min-width: 768px)  { 
+    @content;
+  }
+
+}
+
+@mixin ldesktop {
+  @media screen and (min-width: 963px)  { 
+    @content;
+  }
+}
+
+.container {
+  position: relative;
+  width: 1000px;
+}
+
+.child {
+  display: block;
+  width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+// !VA Looks unused
+// .counter-wrap {
+//   background: #E1E1E1;
+//   button {
+//     display: block;
+//     margin: 0 auto;
+//   }
+// }
+
+// !VA Looks unused
+// .paged-content {
+//   background: #959595;
+// }
+
+// !VA Color variables
+$primary-color: #AD1310;
+$secondary-color: #337AB7;
+// !VA This has to be FFFFFF to match image backgrounds
+$primary-bg-color: #FFF;
+$light-gray: #EEE;
+$med-gray: #999;
+$dark-gray: #555;
+$body-text: #444;
+$base-white: #FFF;
+$header-white: #EAEAEA;
+// !VA This is only used in the .separator
+$base-white-transparent: rgba(255, 255, 255, 0);
+$base-black: #000;
+$off-black: #0E0E0E;
+$sticky-background: rgba(20, 20, 20, .9);
+
+$project1color: #2D699E;
+$project2color: #AD4710;
+
+// !VA Gradient colors
+$page-outer-gradient: #DEE1E5;
+$page-inner-gradient: #FFF;
+$header-outer-gradient:  #282828;
+$header-inner-gradient: #444;
+
+// !VA Fonts
+$content-font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+$heading-font-family:  'Roboto', Arial, Helvetica, sans-serif;
+
+* {box-sizing: border-box;}
+
+// html, body {
+//   overflow-x: hidden;
+// }
+
+html {
+  height: 100%;
+}
+body {
+  // position: relative;
+  height: 100%;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  overflow-y: scroll;
+}
+
+
+
+#root {
+  background: $primary-bg-color;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  // !VA This is to force a scrollbar while getting API data, otherwise the page will shift while the get executes during which time there's no content on the page and hence no scrollbar.
+  min-height: 1000px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.full {
+  width: 100%;
+}
+
+.page__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.segment {
+  @include lphone {
+    width: 25.875rem;
+  }
+  @include tablet {
+    width: 768px; 
+  }
+  @include ldesktop {
+    width: 62.5rem; 
+  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20rem;
+}
+
+.content-heading {
+  h2 {
+    color: $med-gray;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1.5rem;
+    text-align: left;
+  }
+}
+
+.text-content {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 2rem;
+}
+
+.semibold {
+  font-weight: 500;
+}
+
+.emphasis {
+  font-style: italic;
+}
+
+.header {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#353535+0,444444+25,444444+75,353535+100 */
+  // background: $header-outer-gradient; /* Old browsers */
+  // background: -moz-linear-gradient(left,  $header-outer-gradient 0%, $header-inner-gradient 25%, $header-inner-gradient 75%, $header-outer-gradient 100%); /* FF3.6-15 */
+  // background: -webkit-linear-gradient(left,  $header-outer-gradient 0%, $header-inner-gradient 25%, $header-inner-gradient 75%, $header-outer-gradient 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  $header-outer-gradient 0%, $header-inner-gradient 25%, $header-inner-gradient 75%, $header-outer-gradient 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$header-outer-gradient', endColorstr='$header-outer-gradient',GradientType=1 ); /* IE6-9 */
+
+}
+
+.top-banner {
+  // !VA mobileHeaderDark_01
+  width: 100%;
+}
+
+.top-banner-content {
+  @include mphone {
+    width: 365px;
+  }
+  @include lphone {
+    width: 394px;
+  }
+  @include tablet {
+    align-items: flex-start;
+    width: 46.5rem; 
+  }
+  @include ldesktop {
+    width: 62.5rem; 
+  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20rem;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  // !VA mobileHeaderDark_01
+  background: transparent;
+}
+
+.top-banner-left {
+  @include ldesktop {
+    margin: 1rem 0 0;
+  }
+  position: relative;
+  width: 20rem;
+  margin: .5rem 0 0 .5rem;
+  font-family: $heading-font-family;
+}
+
+
+.top-banner-right {
+  @include lphone {
+    margin: 1rem 1rem 0 0;  
+  }
+  @include ldesktop {
+    margin: 0;  
+  }
+  margin-right: 10px;
+}
+
+.header-avatar {
+  @include lphone {
+    width: 110px;
+    height: 110px;
+    background-position: -95px; 
+  }
+  @include tablet {
+    width: 253px;
+    height: 120px;
+    margin-top: 6px;
+    padding: 0;
+    border-radius: 0;
+    background-position: 0; 
+    background-size: contain;
+  }
+  @include ldesktop {
+    width: 270px;
+    height: 130px;
+    margin-top: 6px;
+    padding: 0;
+    border-radius: 0;
+    background-position: 0; 
+  }
+  width: 85px;
+  height: 85px;
+  padding-right: 10px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: -75px; 
+  background-size: cover;
+}
+
+.top-banner-title {
+  width: 100%;
+  text-transform: uppercase;
+  h1 {
+    @include lphone {
+      font-size: 2.25rem;
+    }
+    @include tablet {
+      font-size: 2.25rem; 
+      line-height: 2.25rem;
+    }
+    @include ldesktop {
+      margin-bottom: .4rem;
+      font-size: 2.25rem; 
+      line-height: 2.25rem;
+      text-align: left;
+    }
+    margin-bottom: .125rem;
+    color: $header-white;
+    font-size: 1.75rem;
+    font-weight: 900;
+    line-height: 2.125rem;
+    text-align: left;
+  }
+}
+
+.top-banner-subtitle {
+  h2 {
+    @include lphone {
+      font-size: 1.7rem;
+    }
+    @include tablet {
+      font-size: 1.7rem;
+      line-height: 1.75rem;
+    }
+    @include ldesktop {
+      font-size: 1.75em;
+      line-height: 1.75rem;
+    }
+    color: $med-gray;
+    font-size: 1.3625rem;
+    font-weight: 900;
+    line-height: 1.5rem;
+    text-align: left;
+  }
+}
+
+.top-banner-tagline {
+  @include ldesktop {
+    align-items: flex-start;
+    margin: .125rem 0 0;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  letter-spacing: -.5px;
+}
+
+.top-banner-tagline-list, .project-banner-content-list {
+  @include ldesktop {
+    margin: .375rem 0;
+  }
+  display: flex;
+  justify-content: center;
+  margin: .25rem 0;
+  list-style-type: none;
+  li {
+    @include lphone {
+      font-size: 1.175rem;
+    }
+    @include tablet {
+      font-size: 1.188rem;
+      line-height: 1.5rem;
+    }
+    @include ldesktop {
+      font-size: 1.2rem;
+      line-height: 1.5rem;
+    }
+    display: inline-block;
+    color: $med-gray;
+    font-size: .9125rem;
+    font-weight: normal;
+    line-height: 1.25rem;
+    text-align: center;
+    .lg-bullet {
+      &::after {
+        padding: 0 .3625rem 0 .125rem;
+        font-size: .625rem;
+        content: '●';
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+
+
+.top-banner-slogan {
+  @include lphone {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    left: auto;
+    font-size: 1.05rem;
+  }
+  @include tablet {
+    display: block;
+    top: auto;
+    left: auto;
+    font-size: 1.08em;
+    line-height: 1.5rem;
+  }
+  @include ldesktop {
+    display: block;
+    position: relative;
+    top: auto;
+    left: auto;
+    font-size: 1.08em;
+    line-height: 1.5rem;
+  }
+  display: none;
+  // !VA mobileHeaderDark_01
+  position: relative;
+  // !VA mobileHeaderDark_01
+  top: auto;
+  left: 40px;
+  width: 100%;
+  color: $med-gray;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: normal;
+  line-height: 14px;
+  text-align: left;
+}
+
+// !VA NAVBAR
+.navbar {
+  @include lphone {
+    padding: 1rem 0 .75rem;
+  }
+  @include tablet {
+    height: 4.25rem;
+    padding: 1.25rem 0;
+  }
+  @include ldesktop {
+    align-items: center;
+    width: 100%; 
+    margin-bottom: 1rem;
+    padding: 1.25rem 0;
+  }
+  display: flex;
+  position: relative;
+  // !VA mobileHeaderDark_01
+  top: auto; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 4.25rem;
+  padding: 1rem 0 .75rem;
+  background: transparent;
+}
+
+.navbar-menu-items {
+  @include mphone {
+    width: 365px;
+  }
+  @include lphone {
+    width: 394px;
+  }
+  @include tablet {
+    flex-wrap: nowrap;
+    width: 748px;
+  }
+  @include ldesktop {
+    justify-content: space-between;
+    width: 1000px;
+  }
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  // !VA Set container width here or else it defaults to the width of the navbar-link elements.
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+
+}
+
+.navbar-link {
+  @include mphone {
+    height: 32px;
+  }
+  @include lphone {
+    height: 34px;
+  }
+  @include tablet {
+    height: 36px;
+  }
+  @include ldesktop {
+    height: 42px;
+  }
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 30px;
+  // !VA Fonts are declared here instead of in the child span so we can manipulate them with the ref in the NavbarMenu component
+  border: 0;
+  background-color: $med-gray;
+  text-decoration: none;
+  &:hover {
+    :first-child, :last-child {
+      transform: scale(1.05);
+      transition: all .125s ease;
+    }
+  }
+
+  cursor: pointer;
+  &:focus {
+    outline: none; 
+  } 
+  &.navbar-link-pager {
+    display: none;
+  }
+}
+
+.navbar-link-icon {
+  @include mphone {
+    background-size: 26px 26px;
+  }
+  @include lphone {
+    width: 50px;
+    background-position: center center;
+    background-size: 28px 28px;
+  }
+  @include tablet {
+    position: absolute;
+    left: 10px;
+    width: 60px;
+    background-position: center center;
+    // width: 60px;
+  }
+  @include ldesktop {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    width: 60px;
+    background-position: 12px center;
+    background-size: 30px 30px;
+  }
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 25px 25px;
+}
+
+.navbar-link-label {
+  @include mphone {
+    padding-left: 1rem;
+  }
+  @include lphone {
+    padding-left: 1rem;
+    font-size: .8125rem;
+  }
+  @include tablet {
+    padding-left: 0;
+    font-size: .8625rem;
+  }
+  @include ldesktop {
+    padding-left: 0;
+    font-size: 1.25rem;
+  }
+  top: .938rem;
+  padding-left: 1rem;
+  color: $base-white;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-size: .813rem;
+  font-weight: 600;
+  line-height: .938rem;
+  text-align: center;
+}
+
+// !VA Default properties for sticky navbar. We don't display/hide .sticky-navbar-menu when sticky, but rather have different navbar-menu elements for sticky and unsticky. Here we just push the sticky navbar on/off the top edge of the screen. If we were to use the same navbar for sticky and unsticky, we wouldn't be able to animate it with stickyOut, because by the time stickyOut were run, it would already have mutated back into the regular inline navbar. This way, the inline navbar element just scrolls out of the viewport while the sticky navbar is displayed, and then scrolls back into the viewport once the sticky navbar has animated out of the viewport. NOTE: This has the sideeffect that the sticky navbar stickyOut animation always displays when the page is loaded. The workaround for this is setting the visible/hidden delay in Navbar.js to hide the sticky navbar while the onload stickyOut animation is running.
+.sticky-navbar-menu {
+  @include tablet {
+    top: auto;
+    right: 0;
+    bottom: -3rem;
+    left: 0;
+    // animation: stickyOutTablet .125s ease-in-out;
+    .navbar-menu-items {
+      padding: 5px 40px;
+      .navbar-link {
+        height: 2.5rem;
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 40px 40px;
+      }
+    }
+  }
+  @include ldesktop {
+    top: -3.25rem;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    width: 300px;
+    margin: 0 auto;
+    border-radius: 30px;
+    animation: stickyOutDesktop .125s ease-in-out;
+    .navbar-menu-items {
+      padding: 5px 40px;
+      .navbar-link {
+        span {
+          background-position: center 3px;
+        }
+      }
+    }
+  }
+  position: fixed;
+  top: auto;
+  right: 0;
+  bottom: -3rem;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  // padding: .25rem 0 .5rem;
+  border: 0;
+  border-radius: 0;
+  background: $sticky-background;
+  z-index: 1;
+  animation: stickyOutSmallPhone .125s ease-in-out;
+  .navbar-menu-items {
+    width: 100%;
+    padding: 0;
+    .navbar-link {
+      width: 2.25rem;
+      height: 2.25rem;
+
+      // !VA Branch: 042121A
+      // !VA Default all navbar-link elements in the sticky navbar to transparent. This MUST either be done with an !important or programmatically in NavbarMenuItems, and the !important hack is much easier...
+      border-radius: 0;
+      background-color: transparent !important;
+      .navbar-link-icon {
+        background-repeat: no-repeat;
+        background-position: left top;
+        background-size: 30px 30px;
+      }
+      .navbar-link-label {
+        display: none;
+      }
+      &.navbar-link-pager {
+        display: inline;
+        position: relative;
+        top: -2px;
+        // left: 10px;
+        width: 25px;
+        height: 25px;
+        background-size: cover;
+      }
+    }
+  }
+}
+
+.navbar-link-scrolltotop {
+  left: 15px;
+}
+
+.navbar-link-scrollpagedown {
+  left: -15px;
+}
+
+#nav-sticky {
+  .navbar-link {
+    span {
+      &::after {
+        text-decoration: none;
+        content: '';
+      }
+    }
+  }
+}
+
+.sticky {
+  // !VA position: sticky is not being used when the sticky navbar is at the top of the viewport in desktop view. Instead, .sticky-navbar-menu is simply set to fixed since we have two independent navbars.
+  // position: sticky;
+  top: 0;
+  bottom: 0;
+  z-index: 100; /* this is optional and should be different for every project */
+  .sticky-navbar-menu {
+    @include tablet {
+      top: auto;
+      bottom: 0;
+      animation: stickyInTablet .125s ease-in-out;
+    }
+    @include ldesktop {
+      top: .25rem;
+      bottom: auto;
+      animation: stickyInDesktop .125s ease-in-out;
+    }
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    animation: stickyInSmallPhone .125s ease-in-out;
+  }
+}
+
+@keyframes stickyInSmallPhone {
+  from { transform: translateY(3rem); opacity: 1; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes stickyOutSmallPhone {
+  from { transform: translateY(-3rem); opacity: 1; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes stickyInTablet {
+  from { transform: translateY(3rem); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes stickyOutTablet {
+  from { transform: translateY(3rem); opacity: 1; }
+  to { transform: translateY(-2.75rem); opacity: 0; }
+}
+
+@keyframes stickyInDesktop {
+  from { transform: translateY(-2.75rem); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes stickyOutDesktop {
+  from { transform: translateY(3rem); opacity: 1; }
+  to { transform: translateY(-2.75rem); opacity: 0; }
+}
+
+// !VA .navbar-menu must be in this position in the CSS stack. Otherwise, there will be flickering in the stickyOut animation. I don't know exactly why, I just know this is the cause of it.
+.navbar-menu {
+  position: relative;
+}
+
+.project {
+  @include tablet {
+    width: 48rem; 
+  }
+  @include ldesktop {
+    align-items: center;
+    width: 62.5rem; 
+    margin-bottom: 1rem;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.project-banner {
+  @include mphone {
+    margin: 0 0 2rem;
+    padding: .25rem 0;
+  }
+  @include lphone {
+    margin: 0 0 2rem;
+    padding: .25rem 0;
+  }
+  @include tablet {
+    margin: 0 0 2rem;
+    padding: 0;
+  }
+  @include ldesktop {
+    margin: 0 0 3rem;
+    padding: 0;
+  }
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 0 1rem;
+  padding: 0;
+  background: $off-black;
+}
+
+.project-banner-content {
+  @include ldesktop {
+    align-items: flex-start;
+    margin: .125rem 0 0;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  letter-spacing: -.5px;
+}
+
+.project-banner-content-list {
+  li {
+    @include mphone {
+      padding: 0 .625rem;
+      font-size: .75rem;
+    }
+    @include lphone {
+      padding: 0 .75rem;
+      font-size: .75rem;
+    }
+    @include tablet {
+      padding: 0 1rem;
+      font-size: .8625rem;
+    }
+    @include ldesktop {
+      padding: 0 1rem;
+      font-size: .8625rem;
+    }
+    padding: 0 .25rem;
+    color: $med-gray;
+    font-family: $heading-font-family;
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .1rem;
+    text-align: center;
+    text-transform: uppercase;
+    .lg-bullet {
+      &::after {
+        @include mphone {
+          font-size: .75rem;
+        }
+        @include lphone {
+          font-size: 1rem;
+        }
+        @include tablet {
+          font-size: 1rem;
+        }
+        @include ldesktop {
+          font-size: 1rem;
+        }
+        font-size: .75rem;
+      }
+    }
+  }
+}
+
+
+
+.project__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: .5rem;
+}
+
+.project__header-type {
+  h4 {
+    @include mphone {
+      font-size: 1.25rem;
+    }
+    @include lphone {
+      font-size: 1.365rem;
+    }
+    @include tablet {
+      margin-bottom: 1.25rem;
+      font-size: 1.5rem;
+    }
+    @include ldesktop {
+      margin-bottom: 1.5rem;
+      padding-right: 4rem;
+      font-size: 1.75rem;
+    }
+    display: inline-block;
+    width: 100%;
+    margin-bottom: .5rem;
+    color: $med-gray;
+    font-family: $heading-font-family;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-align: center;
+  }
+}
+
+.project__header-content {
+  position: relative;
+  width: 100%;
+}
+
+.project__header-content-icon {
+  @include mphone {
+    top: 3rem;
+    left: 100px;
+  }
+  @include lphone {
+    top: 5rem;
+    left: 130px;
+  }
+  @include tablet {
+    top: 0;
+    left: 1rem;
+  }
+  @include ldesktop {
+    top: 0;
+    left: 0;
+  }
+  position: absolute;
+  top: 3.25rem;
+  left: 110px;
+  img {
+    @include mphone {
+      width: 90px;
+      margin: .5rem .625rem .5rem 1rem;
+    }
+    @include lphone {
+      width: 100px;
+      margin: .5rem .625rem .5rem 1rem;
+    }
+    @include tablet {
+      width: 80px;
+      margin-top: 1rem; 
+      margin-right: 1rem; 
+    }
+    @include ldesktop {
+      width: 110px;
+      height: 65px;
+      width:  auto;
+      margin-top: 1rem; 
+      margin-right: 1rem; 
+    }
+    width: 90px;
+  }
+}
+
+/* !VA    */
+.project__header-content-text {
+  @include mphone {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+  }
+  @include lphone {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+  }
+  @include tablet {
+    top: 0;
+    left: 100px;
+    width: 100%;
+    padding: 0 0 1rem;
+  }    
+  @include ldesktop {
+    top: 0;
+    left: 48px;
+    width: 880px;
+    padding: 0 0 3rem 1rem;
+  }
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  font-weight: bold;
+
+}
+
+.project__header-content-headline {
+  @include lphone {
+    margin: 0 auto;
+    font-size: 1.75rem;
+  }
+  @include tablet {
+    font-size: 2.125rem;
+    text-align: left;
+  }
+  @include ldesktop {
+    padding: .5rem 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: left;
+  }
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  color: $dark-gray;
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.project__header-content-subhead  {
+  @include mphone {
+    margin-top: 40px;
+    padding: 1rem 0;
+  }
+  @include lphone {
+    margin-top: 60px;
+    padding: 1rem 0;
+  }
+  @include tablet {
+    margin: 0;
+    padding: 0;
+    // padding:  0 0 3rem;
+  }
+  @include ldesktop {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    // padding:  .25rem 0 3rem;
+  }
+  width: 100%;
+  margin-top: 40px;
+  padding: 1rem 0;
+}
+
+
+.project__header-content-subhead-text {
+  @include mphone {
+    display: block;
+    padding: 0 3rem .5rem;
+    font-size: 1.25rem;
+  }
+  @include lphone {
+    display: block;
+    padding: 0 3rem .5rem;
+    font-size: 1.3625rem;
+  }
+  @include tablet {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    text-align: left;
+    &::after {
+      content: '\00a0|\00a0 ';
+    }
+  }
+  @include ldesktop {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-size: 1.75rem;
+    text-align: left;
+    &::after {
+      content: '\00a0|\00a0 ';
+    }
+  }
+  display: block;
+  // width: 100%;
+  padding: 0 2rem .5rem;
+  color: $med-gray;
+  font-size: 1.25rem;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  // background: rgba(0, 0, 255, .1) !important; //devblue
+}
+
+.project__header-content-subhead-subtext {
+  @include lphone {
+    margin-bottom: .75rem;
+    font-size: 1.5rem;
+  }
+  @include tablet {
+    display: inline-block;
+    font-size: 1.75rem;
+  }
+  @include ldesktop {
+    display: inline-block;
+    font-size: 1.625rem;
+    text-align: left;
+  }
+  position: relative;
+  color: $med-gray;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  .highlight-red {
+    color: $primary-color;
+  }
+  a {
+    color: $primary-color;
+    text-decoration: none;
+  }
+}
+
+
+.project__content {
+  width: 100%;
+  margin-bottom: 0 0 1rem 0;
+  padding: 0;
+}
+
+.project__content-image {
+  @include tablet {
+    width: 600px;
+  }
+  @include ldesktop {
+    width: 480px; 
+    margin: 0 2rem 1rem 0;
+    float: left;
+  }
+  width: 94%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  float: none;
+  clear: both;
+  border: 1px solid $light-gray;
+  background: $base-white;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.project__content-text {
+  @include tablet {
+    padding: 0 2rem; 
+  }
+  @include ldesktop {
+    padding: 0;
+  }
+  padding: 0 1rem;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.365rem;
+}
+
+.project__content-heading {
+  @include lphone {
+    width: 100%;
+    margin: 1rem auto;
+    font-size: 1.3625rem;
+    text-align: center;
+  }
+  @include tablet {
+    padding: 1.25rem 0 .75rem;
+    font-size: 1.5rem;
+  }
+  @include ldesktop {
+    margin: 0 auto 1rem;
+    font-size: 1.75rem;
+    text-align: left;
+  }
+  width: 90%;
+  margin: .5rem auto;
+  color: $primary-color;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.375rem;
+  text-align: center;
+}
+
+.strong {
+  font-weight: 700;
+}
+
+.project__content-description {
+  @include lphone {
+    font-size: 1.3625rem;
+    line-height: 1.75rem;
+  }
+  @include tablet {
+    font-size: 1.5rem;
+    line-height: 1.8625rem;
+  }
+  @include ldesktop {
+    font-size: 1.5rem;
+    font-weight: normal;
+    line-height: 2rem;
+  }
+  width: 100%;
+  margin-bottom: .5rem;
+  color: $body-text;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+.project__content-description-1 {
+  @include tablet {
+    display: block;
+  }
+  @include ldesktop {
+    display: block;
+  }
+  display: none;
+}
+
+.project__content-skills {
+  @include lphone {
+    padding: 0 1rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    text-align: center;
+  }
+  @include tablet {
+    padding: 0 1rem;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    text-align: center;
+  }
+  @include ldesktop {
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+    font-size: 1.375rem;
+    line-height: 1.875rem;
+    text-align: center;
+  }
+  width: 100%;
+  color: $primary-color;
+  text-align: left;
+  box-sizing: border-box;
+  &::before {
+    font-weight: 700;
+    content: 'Skills: ';
+  }
+}
+
+
+.project-1, .project-2{
+  .project__header-content-text {
+    @include ldesktop {
+      top: 0;
+      left: 10px;
+      width: 880px;
+      padding: 0 0 3rem 1rem;
+    }
+  }
+  .project__header-content-headline {
+    @include lphone {
+      padding: 1rem;
+    }
+    @include tablet {
+      padding-top: .25rem;
+      padding-bottom: .25rem;
+      font-size: 2rem;
+    }
+  }
+  .project__header-content-icon {
+    @include tablet {
+      top: -10px;
+      left: 20px;
+    }
+    @include ldesktop {
+      top: -0;
+      left: 0;
+    }
+    top: 3.5rem;
+    left: 120px;
+    img {
+      @include tablet {
+        width: 70px;
+      }
+      @include ldesktop {
+        width: 80px;
+      }
+      width: 70px;
+    }
+  }
+  .project__header-content-subhead  {
+    @include mphone {
+      margin-top: 80px;
+      margin-bottom: 0;
+      padding: 1rem 0;
+    }
+    @include lphone {
+      margin-top: 70px;
+      margin-bottom: 20px;
+      padding: 1rem 0;
+    }
+    @include tablet {
+      margin-top: 0;
+      padding: 0;
+    }
+    @include ldesktop {
+      margin-top: 0;
+      padding: 0;
+    }
+    margin-top: 60px;
+    margin-bottom: 0;
+    padding: 1rem 0;
+  }
+  .project__header-content-subhead-subtext {
+    a {
+      color: $project1color;
+    }
+  }
+  .project__content-heading {
+    color: $project1color;
+  }
+  .project__content-skills {
+    color: $project1color;
+  }
+}
+
+.project-2 {
+
+  .project__header-content-subhead-subtext {
+    a {
+      color: $project2color;
+    }
+  }
+  .project__content-heading {
+    color: $project2color;
+  }
+  .project__content-skills {
+    color: $project2color;
+  }
+
+
+
+}
+
+.project__separator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+//https://stackoverflow.com/questions/6250394/how-to-increase-space-between-dotted-border-dots
+.separator {
+  // !VA Keep it narrow to prevent #FFF whitespace at edges
+  width: 240px;
+  max-width: 240px;
+  height: 5px;
+  background-image:
+  radial-gradient(circle at 2.5px, $med-gray 1.25px, $primary-bg-color 2.5px);
+  background-repeat: repeat-x, repeat-y;
+  background-position: top;
+  background-size: 50px 5px, 5px 50px;
+}
+
+.media-viewer {
+  @include ldesktop {
+    margin-top: 20px; 
+  }
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.media {
+  @include lphone {
+    width: 394px;
+  }
+  @include tablet {
+    width: 728px;
+    margin: 5px auto;
+  }
+  @include ldesktop {
+    align-items: flex-end;
+    width: 1000px;
+    min-height: 400px;
+  }
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: flex-start;
+  width: 19.375rem;
+  height: auto;
+  // height: 100vh;
+  margin: 5px auto;
+  padding: 0;
+  background: $base-black;
+  color: $base-white;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  // @media (min-width: 321px) and (max-width: 413px) { 
+  //   width: 365px;
+  //   margin: 5px auto;
+  // }
+}
+
+
+// !VA Branch: showInitRecords
+.media-descriptor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 480px;
+  font-size: 52px;
+
+
+}
+
+.media-descriptor-text {
+  display: block;
+  text-align: center;
+}
+
+.media-content {
+  @include ldesktop {
+    width: 720px;
+    height: auto;
+  }
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+}
+
+
+.movie-credits-title-header, .tv-credits-title-header {
+  @include tablet {
+    display: block;
+    height: 48px;
+    margin: 24px 0 6px;
+  }
+  @include ldesktop {
+    display: block;
+    height: 48px;
+    margin: 20px 0 0;
+  }
+  // !VA Hide the title banner on mobile
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 32px;
+  margin: 12px 0 6px;
+  padding: 0;
+}
+
+.movie-credits-title-banner, .tv-credits-title-banner {
+  @include lphone {
+    font-size: 20px;
+  }
+  @include tablet {
+    padding: 6px;
+    font-size: 22px;
+  }
+  @include ldesktop {
+    font-size: 32px;
+  }
+  margin: 0;
+  padding: 4px;
+  border-top: 1px solid $med-gray;
+  border-bottom: 1px solid $med-gray;
+  color: $base-white;
+  font-family: 'Limelight', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+.movie-credits-title-date, .tv-credits-title-date {
+  @include tablet {
+    position: relative;
+    top: -5px;
+  }
+  @include ldesktop {
+    position: absolute;
+    top: 64px;
+    left: auto;
+    width: 100%;
+  }
+  position: relative;
+  // !VA Move the date below the poster on mobile
+  top: 320px;
+
+  p {
+    @media (min-width: 414px) and (max-width: 578px) { 
+      padding: 6px 0;
+      font-size: 14px;
+      line-height: 17px;
+    }
+    @media (min-width: 768px) and (max-width: 999px) { 
+      // padding: 8px 0 22px;
+      font-size: 16px;
+      line-height: 19px;
+    }
+    @media (min-width: 1000px) { 
+      padding-right: 22px;
+      font-size: 15px;
+      text-align: right; 
+    }
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+.movie-poster, .tv-poster {
+  @include tablet {
+    padding: 0;
+  }
+  @include ldesktop {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 730px;
+    // !VA Remove the bottom padding on desktop and tablet - release date appears at top left on large formats
+    padding: 0 10px;
+  }
+  display: block;
+  position: relative;
+  // !VA Add spacing below poster to accommodate the release date, which appears below the poster on mobile
+  padding: 0 10px 10px 0;
+  img {
+    @include mphone {
+      width: 220px;
+    }
+    @include lphone {
+      width: 260px;
+    }
+    @include tablet {
+      width: 320px;
+    }
+    @include ldesktop {
+      width: 240px;
+      height: auto; 
+    }
+    display: block;
+    width: 200px;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+.movie-credits-cast, .tv-credits-cast {
+  @include ldesktop {
+    margin-top: 8px;
+  }
+  position: relative;
+  width: 100%;
+  margin-top: 14px;
+  text-align: center;
+}
+
+.movie-credits-cast-header, .tv-credits-cast-header {
+  @include tablet {
+    display: block; 
+    margin-top: 16px;
+  }
+  @include ldesktop {
+    display: block; 
+    font-size: 19px;
+  }
+  display: none;
+  margin: 0;
+  padding-top: 5px;
+  font-family: 'Limelight', cursive;
+  font-size: 17px;
+  text-align: center;
+}
+
+// .movie-leading-actors, .movie-actors {
+.movie-credits-cast-actors, .tv-credits-cast-actors {
+  p {
+    @include mphone {
+      width: 82%;
+      padding: 4px 0;
+      font-size: 13px;
+      line-height: 17px;
+    }
+    @include lphone {
+      width: 70%;
+      padding: 4px 0;
+      font-size: 14px;
+      line-height: 18px;
+    }
+    @include tablet {
+      width: 70%;
+      padding: 8px 0;
+      font-size: 18px;
+      line-height: 23px;
+    }
+    @include ldesktop {
+      width: 100%;
+      padding: 8px 20px;
+      font-size: 17px;
+      line-height: 25px;
+    }
+    display: block;
+    width: 85%;
+    margin: 0 auto; 
+    padding: 4px 20px 0;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+  
+.movie-credits-crew, .tv-credits-crew {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+}
+
+.movie-credits-crew-list, .tv-credits-crew-list {
+  @media (min-width: 321px) and (max-width: 413px) { 
+    padding: 4px 25px 0;
+    font-size: 13px;
+    line-height: 17px;
+  }
+  @media (min-width: 414px) and (max-width: 578px) { 
+    width: 72%;
+    padding: 4px 0;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  @media (min-width: 768px) and (max-width: 999px) { 
+    width: 72%;
+    padding: 8px 0;
+    font-size: 18px;
+    line-height: 23px;
+  }
+  @media (min-width: 1000px) { 
+    padding: 8px 0;
+    font-size: 17px;
+    line-height: 25px;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 5px 10px;
+  padding: 0;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  list-style-type: none;
+}
+
+
+.movie-screenplay, .movie-composer {
+  @include mphone {
+    display: block;
+  }
+  @include lphone {
+    display: block;
+  }
+  @include tablet {
+    display: block; 
+  }
+  @include ldesktop {
+    display: block; 
+  }
+}
+
+.media-links { 
+  @include tablet {
+    position: relative; 
+    width: 720px;
+    height: 80px;
+  }
+  @include ldesktop {
+    position: absolute; 
+    bottom: 20px;
+    width: 720px;
+    height: 50px;
+    padding: 0;
+  }
+  position: relative;
+  bottom: 0;
+  width: 80%;
+  height: auto;
+  padding: 10px 0;
+}
+
+
+.media-links-icons {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @media (min-width: 1000px) { 
+    align-items: center;
+  }
+  img {
+    @include mphone {
+      width: 60px;
+      margin: 10px 30px;
+    }
+    @include lphone {
+      width: 70px;
+      margin: 10px 50px;
+    }
+    @include tablet {
+      width: 70px;
+      margin: 10px 50px 40px;
+    }
+    @include ldesktop {
+      width: 70px;
+      margin: 0 20px;
+    }
+    width: 50px;
+    height: auto;
+    margin: 5px 15px;
+  }
+}
+
+.page__content-about {
+  background: $primary-bg-color;
+}
+
+.about {
+  @include mphone {
+    width: 375px;
+    padding: 1rem;
+  }
+  @include lphone {
+    width: 414px;  
+    padding: 1.5rem 1rem;
+  }
+  @include tablet {
+    width: 768px;  
+    padding: 2rem;
+  }
+  @include ldesktop {
+    width: 62.5rem; 
+    margin-bottom: 3rem;
+    padding: 3rem .75rem 2rem;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  padding: 2rem .75rem 1rem;
+}
+
+.about__content-heading {
+  @include mphone {
+    font-size: 1.5rem;
+    line-height: 1.3625rem;
+  }
+  @include lphone {
+    font-size: 1.625rem;
+    line-height: 2rem;
+  }
+  @include tablet {
+    font-size: 1.625rem;
+    line-height: 2rem;
+  }
+  @include ldesktop {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+  color: $primary-color;
+  font-family: $content-font-family;
+  font-size: 1.3625rem;
+  font-weight: 600;
+  line-height: 1.3625rem;
+}
+
+
+.about__content-text, .about__content-list-item {
+  @include mphone {
+    padding: .5rem 0;
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+  }
+  @include lphone {
+    padding: .5rem 0;
+    font-size: 1.3625rem;
+    line-height: 1.75rem;
+  }
+  @include tablet {
+    padding: .5rem 0;
+    font-size: 1.3625rem;
+    line-height: 1.8625rem;
+  }
+  @include ldesktop {
+    padding: .5rem 0;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+  padding: .5rem 0;
+  font-family: $heading-font-family;
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.625rem;
+}
+
+.about__content-list-item {
+  margin-left: 2rem;
+  line-height: 1.625rem;
+  // text-indent: 2rem;
+}
+
+.about__content-types {
+  @include mphone {
+    flex-direction: column;
+  }
+  @include lphone {
+    flex-direction: column;
+  }
+  @include tablet {
+    flex-direction: column;
+    justify-content: space-between;
+    // !VA Note use of Child Combinator > here
+    >:first-child {
+      margin-bottom: 1rem;
+    }
+    >:last-child {
+      margin-top: 1rem;
+    }
+  }
+  @include ldesktop {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    // !VA Note use of Child Combinator > here
+    >:first-child {
+      margin-right: 1rem;
+    }
+    >:last-child {
+      margin-left: 1rem;
+    }
+  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.about__content-type {
+  @include mphone {
+    flex-direction: column;
+    width: 100%;
+  }
+  @include lphone {
+    flex-direction: column;
+    width: 100%;
+  }
+  @include tablet {
+    flex-direction: row;
+    width: 100%;
+  }
+  @include ldesktop {
+    flex-direction: column;
+    width: 33.3%;
+  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem 0;
+  background: $light-gray;
+}
+
+.about__content-type-text {
+  @include tablet {
+    width: 80%;
+  }
+}
+
+.about__content-type-image {
+  @include mphone {
+    width: 20%;
+  }
+  @include lphone {
+    width: 25%;
+  }
+  @include tablet {
+    width: 20%;
+    padding: 1rem;
+  }
+  @include ldesktop {
+    width: 50%;
+  }
+  display: block;
+  width: 20%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.about__content-types-caption {
+  @include mphone {
+    font-size: .875rem;
+  }
+  @include mphone {
+    font-size: .875rem;
+  }
+  @include tablet {
+    padding-right: 3rem;
+    font-size: 1.25rem;
+  }
+  @include ldesktop {
+    padding-bottom: .25rem;
+    font-size: 1.25rem;
+  }
+  margin: 1.25rem 0 0;
+  font-family: $heading-font-family;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.125rem;
+  text-align: center;
+}
+
+.about__content-types-description {
+  @include mphone {
+    padding: .25rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+  }
+  @include lphone {
+    padding: .25rem 1rem;
+    font-size: 1.3625rem;
+    line-height: 1.75rem;
+  }
+  @include tablet {
+    padding: .25rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+  } 
+  @include ldesktop {
+    padding: .25rem 1rem;
+    font-size: 1.3625rem;
+    line-height: 1.75rem;
+  }
+  padding: .5rem 1rem;
+  font-family: $heading-font-family;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.5rem;
+}
+
+// .about-tshaped-image {
+//   width: 800px;
+//   img {
+//     width: 100%;
+//   }
+// }
+
+.about__content-tshaped {
+  @include mphone {
+    flex-direction: column;
+    background-position: center top;
+    background-size: contain;
+  }
+  @include lphone {
+    flex-direction: column;
+    background-position: center top;
+    background-size: contain;
+  }
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: .75rem;
+    background-position: center top;
+    background-size: contain;
+  }
+  @include ldesktop {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: .75rem;
+    background-position: center top;
+    background-size: 100% auto;
+  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+  // height: 800px;
+}
+
+.about__content-tshaped-left, .about__content-tshaped-right {
+  @include mphone {
+    width: 100%;
+    margin-top: 250px;
+  }
+  @include lphone {
+    width: 100%;
+    margin-top: 300px;
+  }
+  @include tablet {
+    width: 42%;
+    margin-top: 90px;
+  }
+  @include ldesktop {
+    width: 42%;
+    margin-top: 140px;
+    padding-bottom: 5rem;
+  }
+  width: 100%;
+  margin-top: 250px;
+}
+
+.about__content-tshaped-right {
+  @include mphone {
+    width: 100%;
+    margin-top: 0;
+  }
+  @include lphone {
+    width: 100%;
+    margin-top: 0;
+  }
+  @include tablet {
+    width: 42%;
+    margin-top: 90px;
+  }
+  @include ldesktop {
+    width: 42%;
+    margin-top: 140px;
+  }
+  margin-top: 0;
+}
+
+.continued {
+  width: 100%;
+  h3 {
+    @include mphone {
+      padding: 0 .75rem;
+      font-size: 1.25rem;
+      line-height: 1.5rem; 
+    }
+    @include lphone {
+      padding: 0 1rem;
+      font-size: 1.365rem;
+      line-height: 1.8625rem; 
+    }
+    @include tablet {
+      padding: 0 2rem;
+      font-size: 1.5rem;
+      line-height: 1.75rem;
+    }
+    @include ldesktop {
+      font-size: 1.75rem;
+    }
+    padding: 0 .75rem;
+    font-size: 1.25rem;
+    line-height: 1.5rem; 
+    text-align: center;
+  }
+  h3, hr {
+    color: $med-gray;
+  }
+}
+
+
+.table-responsive {
+  background: $primary-color;
+}
+
+.footer {
+  @include mphone {
+    margin: 1.25rem 0 0;
+    padding: 1rem 0 3rem;
+  }
+  @include lphone {
+    margin: 1.5rem 0 0;
+    padding: 1rem 0 3rem;
+  }
+  @include tablet {
+    margin: 1.625rem 0 0;
+    padding: 1rem 0 3rem;
+  }
+  @include ldesktop {
+    margin: 60px 0 0;
+    // padding: 30px 0 60px;
+    padding: 0 0 3rem;
+  }
+  display: block;
+  width: 100%;
+  margin: 1.25rem 0 0;
+  padding: .5rem 0 3rem;
+  background: $light-gray;
+}
+
+.footer__content {
+  @include mphone {
+    padding: 0 1.125rem;
+  }
+  @include lphone {
+    padding: 0 1.125rem;
+  }
+  @include tablet {
+    width: 768px;
+    padding: 0 2rem;
+  }
+  @include ldesktop {
+    width: 1000px;
+    padding: 1rem;
+  }
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: .5rem 1rem;
+}
+
+.footer__content-row {
+  width: 100%;
+}
+
+.horiz-rule {
+  @include mphone {
+    margin: .75rem 0;
+  }
+  @include lphone {
+    margin: 1rem 0;
+  }
+  @include tablet {
+    margin: 1.25rem 0;
+  } 
+  @include ldesktop {
+    margin: 1.5rem 0;
+  }
+  display: block;
+  width: 90%;
+  height: 1px;
+  margin: .5rem auto;
+  border: 0;
+  background-color: $med-gray;
+}
+
+
+.footer__content-heading {
+  @include mphone {
+    font-size: 1.25rem;
+  }
+  @include lphone {
+    font-size: 1.3625rem;
+  }
+  @include tablet {
+    font-size: 1.3625rem;
+  } 
+  @include ldesktop {
+    padding-bottom: .25rem;
+    font-size: 1.625rem;
+  }
+  color: $primary-color;
+  font-size: 1.25rem;
+  font-weight: 500;
+
+}
+
+.footer-text {
+  @include mphone {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+  }
+  @include lphone {
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+  }
+  @include tablet {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+  @include ldesktop {
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+  }
+  padding-bottom: .5rem;
+  font-size: 1.065rem;
+  font-weight: 300;
+  line-height: 1.3625rem;
+}
+
+
+
+
+
+// .contact {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   margin-bottom: 4rem;
+//   @media (min-width: 1000px) { 
+//     align-items: center;
+//     width: 62.5rem; 
+//   }
+// }
+
+// .contact-content {
+//   h2 {
+//     font-size: 2rem;
+//   }
+//   p {
+//     margin: 1rem 0;
+//     font-size: 1.5rem;
+//   }
+// }
+
+
+

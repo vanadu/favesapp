@@ -1,0 +1,68 @@
+[
+  {
+    "code": "EN_US",
+    "language": {
+      "en": "English",
+      "de": "Englisch"
+    },
+    "country": {
+      "en": "United States",
+      "de": "USA"
+    }
+  },
+  {
+    "code": "EN_GB",
+    "language": {
+      "en": "English",
+      "de": "Englisch"
+    },
+    "country": {
+      "en": "Great Britain",
+      "de": "Großbrittanien"
+    }
+  },
+  {
+    "code": "DE_DE",
+    "language": {
+      "en": "German",
+      "de": "Deutsch"
+    },
+    "country": {
+      "en": "Germany",
+      "de": "Deutschland"
+    }
+  },
+  {
+    "code": "DE_AT",
+    "language": {
+      "en": "German",
+      "de": "Deutsch"
+    },
+    "country": {
+      "en": "Austria",
+      "de": "Österreich"
+    }
+  },
+  {
+    "code": "DE_CH",
+    "language": {
+      "en": "German",
+      "de": "Deutsch"
+    },
+    "country": {
+      "en": "Switzerland",
+      "de": "Schweiz"
+    }
+  },
+  {
+    "code": "SV_SV",
+    "language": {
+      "en": "Swedish",
+      "sv": "Schwedisch"
+    },
+    "country": {
+      "en": "Sweden",
+      "de": "Schweden"
+    }
+  }
+]
