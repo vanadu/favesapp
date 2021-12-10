@@ -223,6 +223,9 @@ body {
 
 
 .top-banner-left {
+  @include tablet {
+    margin: 1rem .5rem 0;
+  }
   @include ldesktop {
     margin: 1rem 0 0;
   }
@@ -282,12 +285,12 @@ body {
     font-size: 1.75rem;
   }
   @include tablet {
-    margin: 1rem 0;
-    font-size: 2.25rem; 
-    line-height: 2.25rem;
+    margin: .5rem 0;
+    font-size: 2rem; 
+    line-height: 2rem;
   }
   @include ldesktop {
-    margin: 1rem 0;
+    margin: 0 0 .5rem;
     font-size: 2.25rem; 
     line-height: 2.25rem;
     text-align: left;
@@ -1002,7 +1005,7 @@ body {
   }
 }
 
-.footer {
+run .footer {
   @include mphone {
     margin: 1.25rem 0 0;
     padding: 1rem 0 3rem;
